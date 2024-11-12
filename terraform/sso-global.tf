@@ -34,8 +34,3 @@ module "global-sso-assignments-for-management" {
     # mgmt-security-auditor = ["AD_GROUP02"]
   }
 }
-
-moved {
-  from = module.global-sso-assignments
-  to   = module.global-sso-assignments[0]
-}

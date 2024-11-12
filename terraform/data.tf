@@ -8,5 +8,6 @@ data "aws_caller_identity" "current" {}
 
 locals {
   account_id            = data.aws_caller_identity.current.account_id
-  management_account_id = "222222222222"
+  management_account_id = "741448940700"
+  audit_account_id = "891612582626"
 }

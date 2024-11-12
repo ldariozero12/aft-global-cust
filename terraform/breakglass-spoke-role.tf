@@ -5,8 +5,8 @@
 
 module "terraform-aws-breakglass-spoke-role" {
   source = "./modules/terraform-aws-breakglass-spoke-role"
-
-  breakglass_account_id = "891612582626" # Audit account
+  count  = local.account_id != local.audit_account_id ? 1 : 0
+  breakglass_account_id = local.audit_account_id
   breakglass_user_name  = "breakglass-user"
   breakglass_role_name  = "breakglass-role"
 }
