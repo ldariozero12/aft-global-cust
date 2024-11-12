@@ -12,3 +12,17 @@ provider "aws" {
     }
   }
 }
+
+# Account where SSO is configured
+provider "aws" {
+  region = "{{ provider_region }}"
+  alias = "sso"
+  assume_role {
+    role_arn    = "arn:aws:iam::1111111111:role/AWSAFTExecution" # sso account
+  }
+  default_tags {
+    tags = {
+      managed_by                  = "AFT"
+    }
+  }
+}
