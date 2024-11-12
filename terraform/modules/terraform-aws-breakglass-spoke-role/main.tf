@@ -7,7 +7,6 @@
 # Creating Break-glass role and attaching IAM trust policy to authorize its usage by role assumption
 resource "aws_iam_role" "breakglass" {
   name = var.breakglass_role_name
-  count = var.breakglass_account_id == local.a
   assume_role_policy = templatefile("${path.module}/iam/iam_spoke_role_assume_policy.json", {
     "authorized_arn" = "arn:aws:iam::${var.breakglass_account_id}:user/${var.breakglass_user_name}"
   })
